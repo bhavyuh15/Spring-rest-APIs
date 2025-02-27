@@ -13,4 +13,6 @@ public interface GreetingService {
     List<Greeting> getAllGreetings();
 
     Optional<Greeting> updateGreeting(Long id, String message);
+
+    boolean deleteGreeting(Long id);
 }

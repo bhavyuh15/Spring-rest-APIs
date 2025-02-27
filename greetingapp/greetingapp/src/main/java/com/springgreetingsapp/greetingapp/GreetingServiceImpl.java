@@ -3,7 +3,6 @@ package com.springgreetingsapp.greetingapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 @Service
 public class GreetingServiceImpl {
 
@@ -13,14 +12,13 @@ public class GreetingServiceImpl {
         @Autowired
         private GreetingRepository greetingRepository;
 
-        public Optional<Greeting> updateGreeting(Long id, String newMessage) {
-            Optional<Greeting> existingGreeting = greetingRepository.findById(id);
-            if (existingGreeting.isPresent()) {
-                Greeting greeting = existingGreeting.get();
-                greeting.setMessage(newMessage);
-                return Optional.of(greetingRepository.save(greeting));
+        public boolean deleteGreeting(Long id) {
+            if (greetingRepository.existsById(id)) {
+                greetingRepository.deleteById(id);
+                return true;
             }
-            return Optional.empty();
+            return false;
         }
     }
+
 }
