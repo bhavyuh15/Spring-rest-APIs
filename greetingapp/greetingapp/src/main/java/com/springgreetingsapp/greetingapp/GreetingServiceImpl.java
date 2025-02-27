@@ -2,14 +2,21 @@ package com.springgreetingsapp.greetingapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
+import java.util.List;
 @Service
 public class GreetingServiceImpl {
-    @Autowired
-    private GreetingRepository greetingRepository;
 
-    public Optional<Greeting> findGreetingById(Long id) {
-        return greetingRepository.findById(id);
+
+
+    @Service
+    public class GreetingService {
+        @Autowired
+        private GreetingRepository greetingRepository;
+
+        public List<Greeting> getAllGreetings() {
+            return greetingRepository.findAll();
+        }
     }
+
 }

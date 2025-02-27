@@ -1,5 +1,6 @@
 package com.springgreetingsapp.greetingapp;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface GreetingService {
@@ -8,4 +9,6 @@ public interface GreetingService {
     Greeting generateAndSaveGreeting(String firstName, String lastName);
 
     Optional<Greeting> findGreetingById(Long id);
+
+    List<Greeting> getAllGreetings();
 }
