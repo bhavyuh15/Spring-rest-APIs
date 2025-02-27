@@ -11,4 +11,6 @@ public interface GreetingService {
     Optional<Greeting> findGreetingById(Long id);
 
     List<Greeting> getAllGreetings();
+
+    Optional<Greeting> updateGreeting(Long id, String message);
 }
